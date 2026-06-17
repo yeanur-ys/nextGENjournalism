@@ -6,7 +6,7 @@ A scalable baseline for an independent journalism platform centered on transpare
 
 ## 📺 Introduction Video
 
-> 🎥 **https://github.com/user-attachments/assets/a0f7af0b-c75a-41a1-8869-47ea78352d9a**
+https://github.com/user-attachments/assets/a0f7af0b-c75a-41a1-8869-47ea78352d9a
 > *Watch this quick walk-through to understand the architecture, vision, and core capabilities of the Revolutionary NewsPortal platform.*
 
 ---
