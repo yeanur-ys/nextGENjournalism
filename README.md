@@ -1,159 +1,37 @@
-# Turborepo starter
+# Revolutionary NewsPortal (`nextGENjournalism`)
 
-This Turborepo starter is maintained by the Turborepo core team.
+A scalable baseline for an independent journalism platform centered on transparent article lineage, graph-backed account relationships, consensus workflows, and real-time ranking metrics.
 
-## Using this example
+---
 
-Run the following command:
+## 📺 Introduction Video
 
-```sh
-npx create-turbo@latest
-```
+> 🎥 **https://github.com/user-attachments/assets/a0f7af0b-c75a-41a1-8869-47ea78352d9a**
+> *Watch this quick walk-through to understand the architecture, vision, and core capabilities of the Revolutionary NewsPortal platform.*
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## 🚀 Project Overview
 
-### Apps and Packages
+The **Revolutionary NewsPortal** is designed to shift journalism away from opaque algorithms and biased centralized gatekeepers. By combining immutable relational logging with interactive graph theory, the platform tracks data lineage (sequential articles) and accountability metrics, mapping out journalistic bias transparently in real time. 
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Key Features
+* **Dual-Database Relationship Engine**: Merges transaction-safe text storage with multi-hop directional relationship graph mapping.
+* **WebGL Epistemic Graphs**: Implements client-side, high-performance network visualizers capable of rendering thousands of historical context nodes seamlessly without degrading UI responsiveness.
+* **Reputation-Weighted Fact-Checking**: Replaces single-authority confirmation with a trustless, cross-tag decentralized consensus matrix.
+* **Anti-Tampering Retraction Protocol**: Replaces standard data deletions with cryptographic metadata tombstones and visual state updates to preserve graph integrity while fulfilling global legal mandates (e.g., GDPR).
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+---
 
-### Utilities
+## 🏗️ Monorepo Architecture
 
-This Turborepo has some additional tools already setup for you:
+This project is organized as a high-performance monorepo powered by **Turborepo** and **pnpm**. This decoupled layout isolates our highly interactive user interfaces from heavy backend calculations, asynchronous data flows, and infrastructure tasks.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo build
-pnpm dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo build --filter=docs
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo dev
-pnpm exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-pnpm exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-pnpm exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+```text
+nextGENjournalism/
+├── apps/
+│   ├── docs/          # Project documentation and engineering blueprints
+│   └── web/           # Next.js App Router client dashboard and graph rendering layer
+├── packages/
+│   ├── eslint-config/ # Shared code quality and linting configurations
+│   ├── typescript-config/ # Shared strict
