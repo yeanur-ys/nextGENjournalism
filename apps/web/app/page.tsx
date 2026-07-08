@@ -1,102 +1,86 @@
-import Image, { type ImageProps } from "next/image";
-import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
 
-type Props = Omit<ImageProps, "src"> & {
-  srcLight: string;
-  srcDark: string;
-};
-
-const ThemeImage = (props: Props) => {
-  const { srcLight, srcDark, ...rest } = props;
-
-  return (
-    <>
-      <Image {...rest} src={srcLight} className="imgLight" />
-      <Image {...rest} src={srcDark} className="imgDark" />
-    </>
-  );
-};
-
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <ThemeImage
-          className={styles.logo}
-          srcLight="turborepo-dark.svg"
-          srcDark="turborepo-light.svg"
-          alt="Turborepo logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>apps/web/app/page.tsx</code>
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const pillars = [
+    {
+      title: "Traceable Story Lineage",
+      description:
+        "Every article carries linked context, revisions, and source ancestry so readers can audit where claims came from.",
+    },
+    {
+      title: "Relationship Graph Engine",
+      description:
+        "Entity and account connections are mapped across PostgreSQL and Neo4j to expose influence patterns in real time.",
+    },
+    {
+      title: "Consensus Fact Signals",
+      description:
+        "Journalists, reviewers, and readers contribute weighted verification signals that strengthen trust over time.",
+    },
+  ];
 
+  const workflow = [
+    "Capture source notes and first draft in the newsroom workspace.",
+    "Run lineage checks to connect prior reporting and referenced entities.",
+    "Publish with confidence indicators, source map, and live trust score.",
+  ];
+
+  const roadmap = [
+    { phase: "Week 1", focus: "Core publishing shell, authentication, and role setup." },
+    { phase: "Week 2", focus: "Article lineage timeline and revision comparison views." },
+    { phase: "Week 3", focus: "Graph-based relationship explorer with WebGL rendering." },
+    { phase: "Week 4+", focus: "Consensus moderation, reputation weighting, and analytics dashboard." },
+  ];
+
+  return (
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <p className={styles.kicker}>nextGENjournalism</p>
+        <h1>Transparent journalism with visible trust and lineage.</h1>
+        <p className={styles.subtitle}>
+          A frontend foundation to visualize functionality, track credibility, and present journalism workflows
+          clearly from day one.
+        </p>
         <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new/clone?demo-description=Learn+to+implement+a+monorepo+with+a+two+Next.js+sites+that+has+installed+three+local+packages.&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4K8ZISWAzJ8X1504ca0zmC%2F0b21a1c6246add355e55816278ef54bc%2FBasic.png&demo-title=Monorepo+with+Turborepo&demo-url=https%3A%2F%2Fexamples-basic-web.vercel.sh%2F&from=templates&project-name=Monorepo+with+Turborepo&repository-name=monorepo-turborepo&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fturborepo%2Ftree%2Fmain%2Fexamples%2Fbasic&root-directory=apps%2Fdocs&skippable-integrations=1&teamSlug=vercel&utm_source=create-turbo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://turborepo.dev/docs?utm_source"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
+          <a href="#platform">Explore Platform</a>
+          <a href="#roadmap" className={styles.secondary}>
+            View Roadmap
           </a>
         </div>
-        <Button appName="web" className={styles.secondary}>
-          Open alert
-        </Button>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com/templates?search=turborepo&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://turborepo.dev?utm_source=create-turbo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to turborepo.dev →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section id="platform" className={styles.section}>
+        <h2>Platform Pillars</h2>
+        <div className={styles.grid}>
+          {pillars.map((pillar) => (
+            <article key={pillar.title} className={styles.card}>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2>Publishing Workflow</h2>
+        <ol className={styles.timeline}>
+          {workflow.map((step) => (
+            <li key={step}>{step}</li>
+          ))}
+        </ol>
+      </section>
+
+      <section id="roadmap" className={styles.section}>
+        <h2>Build Plan Beyond Week 1</h2>
+        <div className={styles.roadmap}>
+          {roadmap.map((item) => (
+            <article key={item.phase} className={styles.roadmapItem}>
+              <h3>{item.phase}</h3>
+              <p>{item.focus}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
