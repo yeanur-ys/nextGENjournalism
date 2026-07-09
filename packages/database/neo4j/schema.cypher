@@ -1,0 +1,5 @@
+CREATE CONSTRAINT journalist_id IF NOT EXISTS
+FOR (j:Journalist) REQUIRE j.id IS UNIQUE;
+
+CREATE CONSTRAINT article_id IF NOT EXISTS
+FOR (a:Article) REQUIRE a.id IS UNIQUE;

@@ -1,0 +1,12 @@
+{
+  "name": "nextgen-postgres-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "nextgen",
+    "database.password": "nextgen",
+    "database.dbname": "nextgen",
+    "topic.prefix": "nextgen"
+  }
+}

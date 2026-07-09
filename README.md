@@ -1,37 +1,76 @@
-# Revolutionary NewsPortal (`nextGENjournalism`)
+# nextGENjournalism
 
-A scalable baseline for an independent journalism platform centered on transparent article lineage, graph-backed account relationships, consensus workflows, and real-time ranking metrics.
+A monorepo blueprint for a transparent journalism platform with role-based frontend dashboards, a Go API backend, and a Python graph-analysis worker.
 
----
-
-## 📺 Introduction Video
-
-https://github.com/user-attachments/assets/a0f7af0b-c75a-41a1-8869-47ea78352d9a
-> *Watch this quick walk-through to understand the architecture, vision, and core capabilities of the Revolutionary NewsPortal platform.*
-
----
-
-## 🚀 Project Overview
-
-The **Revolutionary NewsPortal** is designed to shift journalism away from opaque algorithms and biased centralized gatekeepers. By combining immutable relational logging with interactive graph theory, the platform tracks data lineage (sequential articles) and accountability metrics, mapping out journalistic bias transparently in real time. 
-
-### Key Features
-* **Dual-Database Relationship Engine**: Merges transaction-safe text storage with multi-hop directional relationship graph mapping.
-* **WebGL Epistemic Graphs**: Implements client-side, high-performance network visualizers capable of rendering thousands of historical context nodes seamlessly without degrading UI responsiveness.
-* **Reputation-Weighted Fact-Checking**: Replaces single-authority confirmation with a trustless, cross-tag decentralized consensus matrix.
-* **Anti-Tampering Retraction Protocol**: Replaces standard data deletions with cryptographic metadata tombstones and visual state updates to preserve graph integrity while fulfilling global legal mandates (e.g., GDPR).
-
----
-
-## 🏗️ Monorepo Architecture
-
-This project is organized as a high-performance monorepo powered by **Turborepo** and **pnpm**. This decoupled layout isolates our highly interactive user interfaces from heavy backend calculations, asynchronous data flows, and infrastructure tasks.
+## Monorepo Architecture
 
 ```text
 nextGENjournalism/
+├── .github/workflows/
+│   ├── frontend-ci.yml
+│   └── backend-ci.yml
 ├── apps/
-│   ├── docs/          # Project documentation and engineering blueprints
-│   └── web/           # Next.js App Router client dashboard and graph rendering layer
+│   ├── frontend/
+│   │   ├── src/app/
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── profile/[journalistId]/page.tsx
+│   │   │   ├── journalist/{layout.tsx,dashboard/page.tsx,publish/page.tsx,appeals/page.tsx}
+│   │   │   ├── auditor/{layout.tsx,dashboard/page.tsx,claims/[claimId]/page.tsx}
+│   │   │   └── admin/{layout.tsx,dashboard/page.tsx,compliance/page.tsx}
+│   │   ├── src/components/{ui/Button.tsx,ui/Input.tsx,LineageGraph.tsx,DashboardNav.tsx}
+│   │   ├── src/graph/{sigma-config.ts,shaders/*,hooks/useSemanticZoom.ts}
+│   │   ├── src/lib/{api.ts,crypto.ts}
+│   │   ├── package.json
+│   │   ├── next.config.js
+│   │   └── tsconfig.json
+│   ├── go-backend/
+│   │   ├── cmd/api/main.go
+│   │   ├── internal/{server,auth,articles,consensus,ranking,compliance,kafka}
+│   │   ├── go.mod
+│   │   └── go.sum
+│   └── python-worker/
+│       ├── src/{main.py,louvain.py,config.py}
+│       ├── requirements.txt
+│       └── Dockerfile
 ├── packages/
-│   ├── eslint-config/ # Shared code quality and linting configurations
-│   ├── typescript-config/ # Shared strict
+│   ├── config-eslint/index.json
+│   ├── config-typescript/base.json
+│   └── database/
+│       ├── index.ts
+│       ├── postgres/{schema.sql,migrations/0001_init.sql}
+│       ├── neo4j/{schema.cypher,queries.ts}
+│       └── redis/{client.ts,keys.ts}
+├── infra/
+│   ├── docker-compose.yml
+│   ├── postgres/postgresql.conf
+│   ├── kafka/server.properties
+│   ├── debezium/register-postgres.json
+│   └── neo4j/conf/neo4j.conf
+├── package.json
+├── pnpm-workspace.yaml
+└── turbo.json
+```
+
+## Current Starter Implementation
+
+- `apps/frontend` contains role-routed Next.js pages and starter graph/client utility modules.
+- `apps/go-backend` contains a compilable HTTP server with starter route groups and domain packages.
+- `apps/python-worker` contains a polling worker skeleton and Louvain clustering integration.
+- `packages/database` and `infra` include initial SQL/Cypher/Redis and local infrastructure scaffolding.
+
+## Development
+
+Install dependencies:
+
+```bash
+corepack pnpm install
+```
+
+Run workspace quality checks:
+
+```bash
+corepack pnpm lint
+corepack pnpm check-types
+corepack pnpm build
+```
